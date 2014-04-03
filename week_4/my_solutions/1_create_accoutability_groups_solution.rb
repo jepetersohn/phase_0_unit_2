@@ -1,7 +1,7 @@
 # U2.W4: Create Sccountability Group
 
 
-# I worked on this challenge [by myself, with: ].
+# I worked on this challenge myself.
 
 # 2. Pseudocode
 
