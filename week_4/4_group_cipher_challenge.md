@@ -3,7 +3,7 @@
 # U2.W4: Group Cipher Challenge
 
 ## Learning Objectives
-- Read and describe what complicated code is doing
+- Identify and explain what code is doing
 - Automate repetitive tasks using loops
 - Decompose a problem into smaller, easier to solve components
 - Identify and rewrite repetitive code

@@ -4,7 +4,7 @@
 
 
 ## Learning Objectives
-- Read and describe what complicated code is doing
+- Identify and explain what code is doing
 - Research and explain how methods work
 - Determine whether code follows good practices
 

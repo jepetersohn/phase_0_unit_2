@@ -20,7 +20,7 @@ If you look in the [solutions](./my_solutions/) folder, you will see we've provi
 
 When you make updates to the files (or add a file), you should commit your work the same way you did for your website through the app. Include a commit message that describes what you've changed.
 
-You need to submit your work through the google form (to be linked later) by Sunday at 11:59pm. Expect to submit the links from your repo for each challenge above. 
+You need to submit your work through [this google form](https://docs.google.com/forms/d/1Tjg3YO2Nb_JSvauKIdr2vXcRvZ074yrVQhXxjg81sLc/viewform) by Sunday at 11:59pm. Expect to submit the links from your repo for each challenge above. 
 
 
 ## Resources

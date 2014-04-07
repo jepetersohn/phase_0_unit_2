@@ -4,9 +4,7 @@
 
 ## Learning Objectives
 - Research a public ruby method and identify a scenario it could be used in
-- Explain how to use the method based on the scenario
-
-## Purpose
+- Explain how to use an existing ruby method
 
 
 ## Directions
