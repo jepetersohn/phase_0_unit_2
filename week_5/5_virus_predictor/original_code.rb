@@ -1,14 +1,17 @@
 # U2.W5: Virus Predictor
 
-# I worked on this challenge [by myself, with: ].
+# I worked on this challenge with Jake Persing
 
 # EXPLANATION OF require_relative
-#
-#
+# Declaring a separate file to be used in this program.
+# Relative means that this file to be included is in the same relative location as the original file.
 require_relative 'state_data'
 
-class VirusPredictor
+# Hash with a nested hash in it.
+# Nested hash is using symbols instead of strings.
 
+class VirusPredictor
+# Initialize method gives values to each instance of the class
   def initialize(state_of_origin, population_density, population, region, regional_spread)
     @state = state_of_origin
     @population = population
@@ -17,44 +20,54 @@ class VirusPredictor
     @next_region = regional_spread
   end
 
+# Instance variables can be used by any method as long as they are within the class or inherited class
+# Calls other methods that are in the class. (predicted_deaths and speed_of_spread) 
   def virus_effects  #HINT: What is the SCOPE of instance variables?
-    predicted_deaths(@population_density, @population, @state)
-    speed_of_spread(@population_density, @state)
+    # We removed unnecessary parameters from both predicted_deaths and speed_of_spread
+    predicted_deaths
+    speed_of_spread
   end
 
+# Private is declaring all the method defined below it cannot be accessed outside of the class.
+# It would make virus_effects also a private method and we would not be able to access it outside of the class. (Driver code)
   private  #what is this?  what happens if it were cut and pasted above the virus_effects method
 
-  def predicted_deaths(population_density, population, state)
-    if @population_density >= 200
-      number_of_deaths = (@population * 0.4).floor
-    elsif @population_density >= 150
-      number_of_deaths = (@population * 0.3).floor
-    elsif @population_density >= 100
-      number_of_deaths = (@population * 0.2).floor
-    elsif @population_density >= 50
-      number_of_deaths = (@population * 0.1).floor
-    else 
-      number_of_deaths = (@population * 0.05).floor
+# Takes population_density and population, and state as parameters.
+# returns the number_of_deaths based on its population_density.
+  def predicted_deaths
+    case @population_density
+      when @population_density >= 200 
+        number_of_deaths = (@population * 0.4).floor
+      when 150..199
+        number_of_deaths = (@population * 0.3).floor
+      when 100..149
+        number_of_deaths = (@population * 0.2).floor
+      when 50..99
+        number_of_deaths = (@population * 0.1).floor
+      else
+        number_of_deaths = (@population * 0.05).floor
     end
 
     print "#{@state} will lose #{number_of_deaths} people in this outbreak"
 
   end
 
-  def speed_of_spread(population_density, state) #in months
+# Takes populatoin_density and state as parameters.
+# Returns the number of months it will take the virus to spread.
+  def speed_of_spread #in months
     speed = 0.0
-
-    if @population_density >= 200
-      speed += 0.5
-    elsif @population_density >= 150
-      speed += 1
-    elsif @population_density >= 100
-      speed += 1.5
-    elsif @population_density >= 50
-      speed += 2
-    else 
-      speed += 2.5
-    end
+    case @population_density
+      when @population_density >= 200
+        speed += 0.5
+      when 150..199
+        speed += 1
+      when 100..149
+        speed += 1.5
+      when 50..99
+        speed += 2
+      else 
+        speed += 2.5
+      end
 
     puts " and will spread across the state in #{speed} months.\n\n"
 
@@ -67,15 +80,9 @@ end
 # DRIVER CODE
  # initialize VirusPredictor for each state
 
+STATE_DATA.each do |x,y|
+  VirusPredictor.new(x, y[:population_density],y[:population],y[:region],y[:regional_spread]).virus_effects
+end
 
-alabama = VirusPredictor.new("Alabama", STATE_DATA["Alabama"][:population_density], STATE_DATA["Alabama"][:population], STATE_DATA["Alabama"][:region], STATE_DATA["Alabama"][:regional_spread]) 
-alabama.virus_effects
 
-jersey = VirusPredictor.new("New Jersey", STATE_DATA["New Jersey"][:population_density], STATE_DATA["New Jersey"][:population], STATE_DATA["New Jersey"][:region], STATE_DATA["New Jersey"][:regional_spread]) 
-jersey.virus_effects
 
-california = VirusPredictor.new("California", STATE_DATA["California"][:population_density], STATE_DATA["California"][:population], STATE_DATA["California"][:region], STATE_DATA["California"][:regional_spread]) 
-california.virus_effects
-
-alaska = VirusPredictor.new("Alaska", STATE_DATA["Alaska"][:population_density], STATE_DATA["Alaska"][:population], STATE_DATA["Alaska"][:region], STATE_DATA["Alaska"][:regional_spread]) 
-alaska.virus_effects
