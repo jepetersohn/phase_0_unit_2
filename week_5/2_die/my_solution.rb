@@ -53,7 +53,7 @@ class Die
   end
 
   def roll
-  	@labels[rand(0..(@sides-1))]
+  	@labels[rand(0...@sides)]
   end
 end
 
