@@ -65,13 +65,13 @@ class CreditCard
 	def check_card
 		sum = 0
 		i = 1
-		@numbers.to_s.reverse.split('').each do |n|
-			n = n.to_i
+		@numbers.to_s.reverse.each_char do |c|
+			n = c.to_i
 			if i.even? 
 				n *= 2
 				if n > 9
-					separated = n.to_s.split('')
-					n = separated[0].to_i + separated[1].to_i
+					n_string = n.to_s
+					n = n_string[0].to_i + n_string[1].to_i
 				end
 			end
 			i += 1
