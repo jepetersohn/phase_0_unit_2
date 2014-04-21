@@ -77,6 +77,7 @@ class CreditCard
 			i += 1
 			sum += n
 		end
+		puts sum
 		return sum % 10 == 0 ? true : false 
 	end
 
@@ -85,7 +86,9 @@ end
 # 1. DRIVER TESTS GO BELOW THIS LINE
 
 p CreditCard.new(4408041234567893).check_card === true
+p CreditCard.new(4408041234567893).check_card
 p CreditCard.new(4408041234567892).check_card === false
+
       
 # 5. Reflection 
 

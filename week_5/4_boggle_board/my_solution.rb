@@ -12,7 +12,7 @@ boggle_board = [["b", "r", "a", "e"],
 
 
 # Pseudocode
-# 1. DEFINE a method called create_word whoch takes two or more parameters.
+# 1. DEFINE a method called create_word which takes two or more parameters.
 #    One is a nested array called board.
 #    The rest are coordinates of the array.
 # 2. Inside create_word, collect each value of the coordinates and put them together to a string.
